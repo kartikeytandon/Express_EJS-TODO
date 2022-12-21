@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const date = require(__dirname + '/date.js')
 const Item = require('./model')
 
+const port = process.env.PORT || 3000;
+
 const app = express()
 
 app.set('view engine', 'ejs')
@@ -62,6 +64,6 @@ app.post('/delete', (req, res) => {
     }) 
 })
 
-app.listen(3000, () => {
-    console.log("Server listening on port 3000!");
-})
+app.listen(port, ()=>{
+	console.log('Server running on port $(port)' );
+});
